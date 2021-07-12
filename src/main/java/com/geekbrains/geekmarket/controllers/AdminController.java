@@ -18,8 +18,7 @@ import java.util.List;
 public class AdminController {
     private OrderService orderService;
 
-    @Autowired
-    public void setOrderService(OrderService orderService) {
+    public AdminController(OrderService orderService) {
         this.orderService = orderService;
     }
 

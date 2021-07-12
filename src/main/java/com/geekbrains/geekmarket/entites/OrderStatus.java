@@ -1,7 +1,14 @@
 package com.geekbrains.geekmarket.entites;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
+@Getter
+@Setter
+@AllArgsConstructor
 @Entity
 @Table(name = "orders_statuses")
 public class OrderStatus {
@@ -16,24 +23,4 @@ public class OrderStatus {
     public OrderStatus() {
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    @Override
-    public String toString() {
-        return "Role{" + "id=" + id + ", title='" + title + '\'' + '}';
-    }
 }

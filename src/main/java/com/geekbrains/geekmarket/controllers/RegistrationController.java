@@ -1,31 +1,30 @@
 package com.geekbrains.geekmarket.controllers;
 
+import com.geekbrains.geekmarket.GeekMarketApplication;
 import com.geekbrains.geekmarket.entites.SystemUser;
 import com.geekbrains.geekmarket.entites.User;
 import com.geekbrains.geekmarket.services.UserService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.log4j.Log4j;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 
+@Log4j
 @Controller
 @RequestMapping("/register")
 public class RegistrationController {
     private UserService userService;
 
-    @Autowired
-    public void setUserService(UserService userService) {
+    public RegistrationController(UserService userService) {
         this.userService = userService;
     }
 
-    private final Logger logger = LoggerFactory.getLogger(RegistrationController.class);
+    private static final org.apache.commons.logging.Log logger = org.apache.commons.logging.LogFactory.getLog(GeekMarketApplication.class);
+
 
     @InitBinder
     public void initBinder(WebDataBinder dataBinder) {
